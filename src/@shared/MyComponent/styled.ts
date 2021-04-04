@@ -1,13 +1,16 @@
 import styled from 'styled-components';
-import { IMyComponentProps } from './interface';
+import { IMyComponentStyledProps } from './interface';
 
 
-export const MyComponentStyled = styled.div<{ size: IMyComponentProps['size'] }>`
+export const MyComponentStyled = styled.div<IMyComponentStyledProps>`
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background-color: ${({ bgColor }) => bgColor};
 
   .header {
     font-size: ${({ size }) => size === 'normal' ? '32px' : '24px'};
+    margin-bottom: 5px;
   }
 
   .content {

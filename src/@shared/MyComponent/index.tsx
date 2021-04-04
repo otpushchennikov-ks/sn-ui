@@ -7,9 +7,13 @@ export default function MyComponent({
   size,
   content,
   header,
+  bgColor = '#fff',
 }: IMyComponentProps) {
   return (
-    <MyComponentStyled size={size}>
+    <MyComponentStyled
+      size={size}
+      bgColor={bgColor}
+    >
       <div className="header">
         {header}
       </div>
