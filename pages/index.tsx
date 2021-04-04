@@ -1,10 +1,19 @@
-import { GetStaticProps } from 'next';
+import MyComponent from '../@shared/MyComponent';
 
 
 export default function Index() {
   return (
-    <div >
-      Root
-    </div>
+    <>
+      <MyComponent
+        size="normal"
+        header="Заголовок 1"
+        content="Содержимое 1"
+      />
+      <MyComponent
+        size="small"
+        header="Заголовок 2"
+        content="Содержимое 2"
+      />
+    </>
   );
 }
