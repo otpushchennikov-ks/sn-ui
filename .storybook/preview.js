@@ -1,3 +1,5 @@
+import DictsContext from '../src/@context/DictsContext';
+
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -8,3 +10,16 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  Story => (
+    <DictsContext.Provider value={{
+      district: [
+        { name: 'ЗелАО' },
+        { name: 'ТАО' },
+      ],
+    }}>
+      <Story />
+    </DictsContext.Provider>
+  ),
+];

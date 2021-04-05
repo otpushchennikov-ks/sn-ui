@@ -3,7 +3,6 @@ import { IMyComponentStyledProps } from './interface';
 
 
 export const MyComponentStyled = styled.div<IMyComponentStyledProps>`
-  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: ${({ bgColor }) => bgColor};
