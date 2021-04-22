@@ -7,7 +7,7 @@ import { IListItemProps } from '@shared/ListItem/interface';
 const Template: Story<IListItemProps> = args => <ListItem {...args}/>;
 
 export default {
-  title: 'Shared/ListItem',
+  title: 'v1/List/ListItem',
   component: ListItem,
 } as Meta;
 

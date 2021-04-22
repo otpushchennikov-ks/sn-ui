@@ -4,9 +4,15 @@ import DictsContext from '@context/DictsContext';
 import List from '@shared/List';
 import ListItem from '@shared/ListItem';
 import { IListItemProps } from '@shared/ListItem/interface';
+import { GetStaticProps, GetServerSideProps, GetStaticPaths } from 'next/types';
 
 
-export default function Index() {
+interface IIndexProps {
+  foo: string
+  bar?: number
+}
+
+export default function Index({}: IIndexProps) {
   const [listData] = useState<IListItemProps[]>([
     {
       text: 'Элемент 1',
@@ -51,3 +57,19 @@ export default function Index() {
     </DictsContext.Provider>
   );
 }
+
+export const getStaticProps: GetStaticProps<IIndexProps> = async ({ params }) => {
+  return {
+    props: {
+      foo: 'sometext',
+    },
+    redirect: 1,
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [{ params: { id: '1' }}],
+    fallback: true,
+  };
+};

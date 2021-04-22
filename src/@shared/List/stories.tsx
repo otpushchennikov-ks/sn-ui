@@ -5,6 +5,15 @@ import { IListProps } from '@shared/List/interface';
 import ListItem from '@shared/ListItem';
 import { IListItemProps } from '@shared/ListItem/interface';
 import { NotCompleted, Completed } from '@shared/ListItem/stories';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs/blocks';
 
 
 const Template: Story<{ items: IListItemProps[] } & IListProps> = ({ items, ...args }) => {
@@ -16,11 +25,32 @@ const Template: Story<{ items: IListItemProps[] } & IListProps> = ({ items, ...a
 };
 
 export default {
-  title: 'Shared/List',
+  title: 'v1/List/List',
   component: List,
+  subcomponents: { ListItem },
 } as Meta;
 
 export const Empty = Template.bind({});
+Empty.args = {
+  items: [],
+  description: 'Описание пустого списка',
+};
+Empty.parameters = {
+  docs: {
+    page: () => {
+      return (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+        </>
+      );
+    },
+  },
+};
 
 export const SeveralItems = Template.bind({});
 SeveralItems.args = {
@@ -31,5 +61,5 @@ SeveralItems.args = {
     text: NotCompleted.args!.text!,
     completed: NotCompleted.args!.completed!,
   }],
-  description: 'Описание списка',
+  description: 'Описание непустого списка',
 };
