@@ -1,5 +1,1 @@
-import { ReactNode } from 'react';
-
-export interface IMainLayoutProps {
-  children?: ReactNode
-}
+export interface IMainLayoutProps {}

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { IMyComponentProps } from './interface';
 import { MyComponentStyled } from './styled';
-import DictsContext from '@context/DictsContext';
 
 
 export default function MyComponent({
@@ -12,7 +11,7 @@ export default function MyComponent({
   mapHeader = header => header.toLowerCase(),
   onClick,
 }: IMyComponentProps) {
-  const dicts = useContext(DictsContext);
+  const dicts = { district: [] };
 
   return (
     <MyComponentStyled

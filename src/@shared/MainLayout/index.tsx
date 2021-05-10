@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, FC } from 'react';
 import { PageHeader, Button } from 'antd';
 import { IMainLayoutProps } from './interface';
 import { gql, useMutation, useQuery } from '@apollo/client';
@@ -24,13 +24,11 @@ const GITHUB_AUTH_MUTATION = gql`
   }
 `;
 
-export default function MainLayout({ children }: IMainLayoutProps) {
+const MainLayout: FC<IMainLayoutProps> = ({ children }) => {
   const router = useRouter();
   const { data, loading, refetch: refetchMe } = useQuery(ME_QUERY);
-  const [githubAuth, { data: authData }] = useMutation(GITHUB_AUTH_MUTATION);
-  
-  const token = authData?.githubAuth?.token;
-  
+  const [githubAuth] = useMutation(GITHUB_AUTH_MUTATION);
+
   useEffect(() => {
     const { query: { code }, route } = router;
     if (!code) return;
@@ -74,3 +72,5 @@ export default function MainLayout({ children }: IMainLayoutProps) {
     </PageHeader>
   );
 }
+
+export default MainLayout;
