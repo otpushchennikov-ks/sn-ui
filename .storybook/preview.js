@@ -1,4 +1,6 @@
-import DictsContext from '../src/@context/DictsContext';
+import 'antd/dist/antd.css';
+import StylesProvider from '../src/@providers/StylesProvider';
+import ApolloProvider from '../src/@providers/ApolloProvider';
 
 
 export const parameters = {
@@ -26,13 +28,13 @@ export const parameters = {
 
 export const decorators = [
   Story => (
-    <DictsContext.Provider value={{
-      district: [
-        { name: 'ЗелАО' },
-        { name: 'ТАО' },
-      ],
-    }}>
+    <ApolloProvider>
       <Story />
-    </DictsContext.Provider>
+    </ApolloProvider>
+  ),
+  Story => (
+    <StylesProvider>
+      <Story />
+    </StylesProvider>
   ),
 ];
