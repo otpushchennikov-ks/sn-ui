@@ -24,11 +24,11 @@ export default function MyComponent({
       </div>
       <div className="content">
         <div>
-          {dicts
+          {/* {dicts
             .district
             ?.map(item => item.name || 'default text')
             .join(', ')
-          }
+          } */}
         </div>
         <div>{content}</div>
       </div>
