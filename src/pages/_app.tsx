@@ -1,12 +1,13 @@
 import 'antd/dist/antd.css';
 import { AppProps } from 'next/app';
-import ApolloProvider from '@providers/ApolloProvider';
 import StylesProvider from '@providers/StylesProvider';
+import apolloClient from '@lib/apolloClient';
+import { ApolloProvider } from '@apollo/client';
 
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ApolloProvider>
+    <ApolloProvider client={apolloClient}>
       <StylesProvider>
         <Component {...pageProps} />
       </StylesProvider>      

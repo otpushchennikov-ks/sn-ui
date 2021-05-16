@@ -1,10 +1,15 @@
+import React, { FC } from 'react';
 import MainLayout from '@shared/MainLayout';
+import Link from 'next/link';
 
 
-export default function Index() {
+const Index: FC = () => {
   return (
     <MainLayout>
-      Home page content
+      Index page
+      <Link href="/profile"><a>Profile</a></Link>
     </MainLayout>
   );
 }
+
+export default Index;
