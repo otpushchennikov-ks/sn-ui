@@ -1,11 +1,13 @@
-import Document, { DocumentContext } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+
+import Document, { DocumentContext } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 
 export default class CustomDocument extends Document {
   static async getInitialProps(context: DocumentContext) {
-    const stylesheet = new ServerStyleSheet()
-    const originalRenderPage = context.renderPage
+
+    const stylesheet = new ServerStyleSheet();
+    const originalRenderPage = context.renderPage;
 
     try {
       context.renderPage = () => {
@@ -15,7 +17,7 @@ export default class CustomDocument extends Document {
         });
       };
 
-      const initialProps = await Document.getInitialProps(context)
+      const initialProps = await Document.getInitialProps(context);
       return {
         ...initialProps,
         styles: (

@@ -1,4 +1,7 @@
+import '@styled/global.css';
+import 'normalize.css';
 import 'antd/dist/antd.css';
+import '@styled/vars.css';
 import { AppProps } from 'next/app';
 import StylesProvider from '@providers/StylesProvider';
 import apolloClient from '@lib/apolloClient';
