@@ -1,9 +1,9 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next/types';
 import Link from 'next/link';
-import { FC, useEffect } from 'react';
+import { FC, } from 'react';
 import { gql } from '@apollo/client';
 import IUser from '@interfaces/IUser';
-import apolloClient, { initApollo } from '@lib/apolloClient';
+import { initApollo } from '@lib/apolloClient';
 
 
 const ME_QUERY = gql`

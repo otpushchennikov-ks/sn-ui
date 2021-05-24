@@ -1,4 +1,3 @@
-import 'antd/dist/antd.css';
 import React, { FC, useState } from 'react';
 import { Button } from 'antd';
 import { IMainLayoutProps } from './interface';
