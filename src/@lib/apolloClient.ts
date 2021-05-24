@@ -5,12 +5,11 @@ import cookieAPI from 'js-cookie';
 import { persistCacheSync, LocalStorageWrapper } from 'apollo3-cache-persist';
 
 
+const cache = new InMemoryCache();
+const ssrMode = typeof window === 'undefined';
+
 function initApollo(ssrContext?: GetServerSidePropsContext) {
-  const ssrMode = typeof window === 'undefined';
   const storageKey = 'apollo-cache-persist';
-  
-  const cache = new InMemoryCache();
-  
   if (!ssrMode) {
     persistCacheSync({
       cache,
